@@ -22,4 +22,4 @@ Base path: `/api/v1`
   - Auth required.
   - Returns current user profile (no password fields).
 
-All responses follow the shared format: `{ success, data?, error? }`.
+All responses follow the shared format defined in `error-handling.md`.

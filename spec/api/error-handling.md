@@ -12,12 +12,17 @@
 
 **Client responses:**
 
-- Do not expose stack traces.
-- Use consistent shape:
-  - `status` — HTTP status code.
-  - `body` — `{ success: false, error: { code, message } }`.
+All responses use the following consistent shape:
 
-**Common codes:**
+```
+{ success: boolean, data?: any, error?: { code, message, details? } }
+```
+
+- On success: return `{ success: true, data: ... }`.
+- On error: return `{ success: false, error: { code, message, details? } }`.
+- Never expose stack traces to clients.
+
+**Common error codes:**
 
 - `400` — validation errors.
 - `401` — unauthenticated.

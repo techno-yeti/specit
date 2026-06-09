@@ -1,18 +1,29 @@
-# Project spec
+# Specifications
 
-**Goal:** Define a MERN-style web app (MongoDB, Express, Node) **without React**, using:
+This directory defines _what_ to build for a MERN-style web app (MongoDB, Express, Node) **without React**, using server-rendered views and TailwindCSS.
 
-- TailwindCSS for styling
-- Server-rendered views (e.g. EJS) or static HTML
-- Authentication and authorisation
-- MongoDB for persistence
-- Strong security defaults
+## Structure
 
-**Rules for the generator:**
+| Area               | Files                                                                                   |
+| ------------------ | --------------------------------------------------------------------------------------- |
+| **Application**    | `app/` — architecture, environment config, logging, middleware, routing, security       |
+| **API**            | `api/` — REST endpoints, error handling, request validation                             |
+| **Authentication** | `auth/` — registration/login/logout flows, JWT/session strategy, role-based permissions |
+| **Database**       | `database/` — MongoDB schemas, query patterns, migrations                               |
+| **Frontend**       | `frontend/` — EJS layout, TailwindCSS setup, reusable components, forms, accessibility  |
+| **Deployment**     | `deployment/` — Docker, CI/CD pipeline, production runtime                              |
+| **Testing**        | `testing/` — unit, integration, and end-to-end testing strategies                       |
 
-- **Never** introduce React or client-side frameworks.
-- Use **Express** for HTTP routing and middleware.
-- Use **MongoDB** via an official or well-supported driver/ODM (e.g. Mongoose).
-- Use **TailwindCSS** compiled into static CSS; no inline styles.
-- Follow each spec file as a contract. If something is missing, prefer secure defaults.
-- Do not hardcode secrets; always read from environment variables defined in `app/env.md`.
+## Rules for the Generator
+
+- Read all spec files before generating code.
+- Use **Express** for HTTP routing, **MongoDB** (Mongoose) for persistence, **TailwindCSS** (compiled) for styling.
+- Never introduce client-side frameworks.
+- Never hardcode secrets; read from environment variables defined in `app/env.md`.
+- Follow the companion `agents.md` contract for consistency, security, and generation rules.
+
+## How to Read
+
+Start with `app/architecture.md` for the high-level structure, then explore the area you need.
+
+See the root `README.md` for the full project overview and key design decisions.
